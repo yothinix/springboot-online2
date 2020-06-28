@@ -1,6 +1,7 @@
 package com.example.springbootonline2.service;
 
 import com.example.springbootonline2.domain.Employee;
+import com.example.springbootonline2.domain.EmployeeResponse;
 import com.example.springbootonline2.exception.UnProcessableException;
 import com.example.springbootonline2.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,4 +51,9 @@ public class EmployeeService {
     public List<Employee> queryByLastName(String lastName) {
         return employeeRepository.findByLastName(lastName);
     }
+
+    public List<EmployeeResponse> queryByNativeQuery() {
+        return employeeRepository.queryByNativeQuery();
+    }
+
 }
