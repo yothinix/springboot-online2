@@ -1,7 +1,6 @@
 package com.example.springbootonline2.controller;
 
 import com.example.springbootonline2.domain.Employee;
-import com.example.springbootonline2.repository.EmployeeRepository;
 import com.example.springbootonline2.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -18,6 +17,11 @@ public class EmployeeController {
     @GetMapping
     public List<Employee> listAllEmployee() {
         return employeeService.listAll();
+    }
+
+    @GetMapping("/query")
+    public List<Employee> findByLastName(@RequestParam String lastName) {
+        return employeeService.queryByLastName(lastName);
     }
 
     @GetMapping("/{id}")
