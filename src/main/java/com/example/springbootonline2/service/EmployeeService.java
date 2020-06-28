@@ -48,7 +48,7 @@ public class EmployeeService {
     }
 
     public List<Employee> queryByLastName(String lastName) {
-        return employeeRepository.findByLastName(lastName);
+        return jpaRepository.findByLastName(lastName);
     }
 
     public List<EmployeeResponse> queryByNativeQuery() {
