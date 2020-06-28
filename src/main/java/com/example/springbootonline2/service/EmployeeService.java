@@ -24,11 +24,7 @@ public class EmployeeService {
     }
 
     public Employee findById(Integer id) {
-        Employee employeeEntity = employeeRepository.findById(id);
-        if (employeeEntity == null) {
-            throw new UnProcessableException("Data not found id: " + id);
-        }
-        return employeeEntity;
+        return jpaRepository.findById(id).orElseThrow(() -> new UnProcessableException("Not found employee."));
     }
 
     @Transactional
