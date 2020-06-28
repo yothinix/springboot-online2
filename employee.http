@@ -13,3 +13,13 @@ Content-Type: application/json
   "firstName": "HuMan",
   "lastName": "Odds"
 }
+
+###
+
+PUT http://localhost:8080/employees/10
+Content-Type: application/json
+
+{
+  "firstName": "Man",
+  "lastName": "Odds"
+}

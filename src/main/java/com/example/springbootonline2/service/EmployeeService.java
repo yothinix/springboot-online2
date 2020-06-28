@@ -26,4 +26,16 @@ public class EmployeeService {
     public void save(Employee employee) {
         employeeRepository.save(employee);
     }
+
+    @Transactional
+    public void update(Integer id, Employee employee) {
+        Employee employeeEntity = employeeRepository.findById(id);
+        if (employee == null) {
+            throw new RuntimeException("Data not found.");
+        }
+        employeeEntity.setFirstName(employee.getFirstName());
+        employeeEntity.setLastName(employee.getLastName());
+
+        employeeRepository.save(employeeEntity);
+    }
 }

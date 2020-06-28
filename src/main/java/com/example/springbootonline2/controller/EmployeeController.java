@@ -32,5 +32,6 @@ public class EmployeeController {
 
     @PutMapping("/{id}")
     public void updateEmployee(@PathVariable Integer id, @RequestBody Employee employee) {
+        employeeService.update(id, employee);
     }
 }
