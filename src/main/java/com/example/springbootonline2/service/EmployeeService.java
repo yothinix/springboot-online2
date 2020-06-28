@@ -2,6 +2,7 @@ package com.example.springbootonline2.service;
 
 import com.example.springbootonline2.domain.Employee;
 import com.example.springbootonline2.repository.EmployeeJPARepository;
+import com.example.springbootonline2.repository.LogRepository;
 import com.example.springbootonline2.response.EmployeeResponse;
 import com.example.springbootonline2.exception.UnProcessableException;
 import com.example.springbootonline2.repository.EmployeeRepository;
@@ -18,6 +19,8 @@ public class EmployeeService {
     @Autowired private EmployeeRepository employeeRepository;
 
     @Autowired private EmployeeJPARepository jpaRepository;
+
+    @Autowired private LogRepository logRepository;
 
     public List<Employee> listAll() {
         return jpaRepository.findAll();
@@ -39,6 +42,12 @@ public class EmployeeService {
         employeeEntity.setLastName(employee.getLastName());
 
         jpaRepository.save(employeeEntity);
+
+        // do something such as save log
+        logRepository.saveLog();
+
+        // occur error
+        throw new UnProcessableException("Force Error");
     }
 
     @Transactional
