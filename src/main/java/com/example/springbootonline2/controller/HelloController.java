@@ -1,9 +1,7 @@
 package com.example.springbootonline2.controller;
 
 import com.example.springbootonline2.model.MessageInfo;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,5 +24,10 @@ public class HelloController {
         MessageInfo messageInfo = new MessageInfo();
         messageInfo.setMessage("This is message of id: " + id);
         return messageInfo;
+    }
+
+    @RequestMapping(value = "/hello", method = RequestMethod.POST)
+    public void postMessage(@RequestBody MessageInfo messageInfo) {
+        System.out.println("message: " + messageInfo.getMessage());
     }
 }
