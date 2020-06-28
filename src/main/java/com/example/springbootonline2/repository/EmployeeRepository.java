@@ -27,4 +27,9 @@ public class EmployeeRepository {
     public Employee findById(Integer id) {
         return entityManager.find(Employee.class, id);
     }
+
+    @Transactional
+    public void delete(Employee employeeEntity) {
+        entityManager.remove(employeeEntity);
+    }
 }

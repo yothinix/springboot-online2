@@ -23,3 +23,7 @@ Content-Type: application/json
   "firstName": "Man",
   "lastName": "Odds"
 }
+
+###
+
+DELETE http://localhost:8080/employees/1

@@ -29,7 +29,7 @@ public class EmployeeService {
 
     @Transactional
     public void update(Integer id, Employee employee) {
-        Employee employeeEntity = employeeRepository.findById(id);
+        Employee employeeEntity = findById(id);
         if (employee == null) {
             throw new RuntimeException("Data not found.");
         }
@@ -37,5 +37,15 @@ public class EmployeeService {
         employeeEntity.setLastName(employee.getLastName());
 
         employeeRepository.save(employeeEntity);
+    }
+
+    @Transactional
+    public void delete(Integer id) {
+        Employee employeeEntity = findById(id);
+        if (employeeEntity== null) {
+            throw new RuntimeException("Data not found.");
+        }
+
+        employeeRepository.delete(employeeEntity);
     }
 }
