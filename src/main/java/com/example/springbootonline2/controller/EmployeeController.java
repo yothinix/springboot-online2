@@ -3,10 +3,7 @@ package com.example.springbootonline2.controller;
 import com.example.springbootonline2.domain.Employee;
 import com.example.springbootonline2.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,8 +18,18 @@ public class EmployeeController {
         return employeeRepository.listAll();
     }
 
+    @RequestMapping(value = "/employees/{id}", method = RequestMethod.GET)
+    public Employee getEmployee(@PathVariable Integer id) {
+        return employeeRepository.findById(id);
+    }
+
     @RequestMapping(value = "/employees", method = RequestMethod.POST)
     public void createEmployee(@RequestBody Employee employee) {
         employeeRepository.save(employee);
+    }
+
+    @RequestMapping(value = "/employees/{id}", method = RequestMethod.PUT)
+    public void updateEmployee(@PathVariable Integer id, @RequestBody Employee employee) {
+
     }
 }
