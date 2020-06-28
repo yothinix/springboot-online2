@@ -14,22 +14,22 @@ public class EmployeeController {
     @Autowired
     private EmployeeRepository employeeRepository;
 
-    @RequestMapping(method = RequestMethod.GET)
+    @GetMapping
     public List<Employee> listAllEmployee() {
         return employeeRepository.listAll();
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    @GetMapping("/{id}")
     public Employee getEmployee(@PathVariable Integer id) {
         return employeeRepository.findById(id);
     }
 
-    @RequestMapping(method = RequestMethod.POST)
+    @PostMapping
     public void createEmployee(@RequestBody Employee employee) {
         employeeRepository.save(employee);
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+    @PutMapping("/{id}")
     public void updateEmployee(@PathVariable Integer id, @RequestBody Employee employee) {
     }
 }
