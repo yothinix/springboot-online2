@@ -51,6 +51,10 @@ public class EmployeeService {
         return jpaRepository.findByLastName(lastName);
     }
 
+    public List<Employee> queryByFirstName(String lastName) {
+        return jpaRepository.findByFirstName(lastName);
+    }
+
     public List<EmployeeResponse> queryByNativeQuery() {
         return employeeRepository.queryByNativeQuery().stream().peek(it -> {
             it.setMoney(10);

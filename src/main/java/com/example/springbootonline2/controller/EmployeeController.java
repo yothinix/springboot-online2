@@ -21,6 +21,11 @@ public class EmployeeController {
     }
 
     @GetMapping("/query")
+    public List<Employee> findByFirstName(@RequestParam(required = false) String firstName) {
+        return employeeService.queryByFirstName(firstName);
+    }
+
+    @GetMapping("/query2")
     public List<Employee> findByLastName(@RequestParam(required = false) String lastName) {
         return employeeService.queryByLastName(lastName);
     }
