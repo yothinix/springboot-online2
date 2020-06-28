@@ -39,3 +39,7 @@ GET http://localhost:8080/employees/query2?lastName=Doe
 ###
 
 GET http://localhost:8080/employees/nativeQuery
+
+###
+
+GET http://localhost:8080/employees/path

@@ -4,6 +4,7 @@ import com.example.springbootonline2.domain.Employee;
 import com.example.springbootonline2.response.EmployeeResponse;
 import com.example.springbootonline2.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,6 +15,14 @@ public class EmployeeController {
 
     @Autowired
     private EmployeeService employeeService;
+
+    @Value("${uploadPath}")
+    private String uploadPath;
+
+    @GetMapping("/path")
+    public String getUploadPath() {
+        return this.uploadPath;
+    }
 
     @GetMapping
     public List<Employee> listAllEmployee() {
