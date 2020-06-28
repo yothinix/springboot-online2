@@ -1,7 +1,7 @@
 package com.example.springbootonline2.service;
 
 import com.example.springbootonline2.domain.Employee;
-import com.example.springbootonline2.domain.EmployeeResponse;
+import com.example.springbootonline2.response.EmployeeResponse;
 import com.example.springbootonline2.exception.UnProcessableException;
 import com.example.springbootonline2.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class EmployeeService {
@@ -53,7 +54,9 @@ public class EmployeeService {
     }
 
     public List<EmployeeResponse> queryByNativeQuery() {
-        return employeeRepository.queryByNativeQuery();
+        return employeeRepository.queryByNativeQuery().stream().peek(it -> {
+            it.setMoney(10);
+        }).collect(Collectors.toList());
     }
 
 }

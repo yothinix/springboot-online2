@@ -1,7 +1,7 @@
 package com.example.springbootonline2.controller;
 
 import com.example.springbootonline2.domain.Employee;
-import com.example.springbootonline2.domain.EmployeeResponse;
+import com.example.springbootonline2.response.EmployeeResponse;
 import com.example.springbootonline2.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

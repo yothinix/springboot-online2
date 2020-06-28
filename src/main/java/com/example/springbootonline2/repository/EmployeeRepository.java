@@ -1,7 +1,7 @@
 package com.example.springbootonline2.repository;
 
 import com.example.springbootonline2.domain.Employee;
-import com.example.springbootonline2.domain.EmployeeResponse;
+import com.example.springbootonline2.response.EmployeeResponse;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
