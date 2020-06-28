@@ -1,6 +1,7 @@
 package com.example.springbootonline2.service;
 
 import com.example.springbootonline2.domain.Employee;
+import com.example.springbootonline2.exception.UnProcessableException;
 import com.example.springbootonline2.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,8 +31,8 @@ public class EmployeeService {
     @Transactional
     public void update(Integer id, Employee employee) {
         Employee employeeEntity = findById(id);
-        if (employee == null) {
-            throw new RuntimeException("Data not found.");
+        if (employeeEntity == null) {
+            throw new UnProcessableException("Data not found id: " + id);
         }
         employeeEntity.setFirstName(employee.getFirstName());
         employeeEntity.setLastName(employee.getLastName());
